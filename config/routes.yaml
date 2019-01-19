@@ -1,16 +1,3 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-
-# the "create_product" route name is not important yet
-create_product:
-    path: /product/create
-    controller: App\Controller\CreateProduct::number
-
-edit_product:
-    path: /product/edit
-    controller: App\Controller\EditProduct::number
-
-product_view:
-    path: /product/list
-    controller: App\Controller\ProductsList::number

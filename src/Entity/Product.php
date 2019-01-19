@@ -36,6 +36,11 @@ class Product
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $createdAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,7 +58,7 @@ class Product
         return $this;
     }
 
-    public function getDescription(): ?text
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -85,6 +90,18 @@ class Product
     public function setPrice(?int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
