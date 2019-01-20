@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <ul>
+        <li>
+            <p>{{ product.id }}</p>
+            <p>{{ product.name }}</p>
+            {# Immagine #}
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+            {% if product.createdAt %}
+                <p>{{ product.createdAt.date }}</p>
+            {% endif %}
+            {# {% for tag in product.tag %}
+                <p>{{ tag }}</p>
+            {% endfor %} #}
+            {{ product.tag }}
+        </li>
+    </ul>
+    
+    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+{% endblock %}

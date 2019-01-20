@@ -6,13 +6,10 @@
     <ul>
         {% for product in products %}
             <li>
-                <p>{{ product.id }}</p>
-                <p>{{ product.name }}</p>
-                <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
-                {% if product.createdAt %}
-                    <p>{{ product.createdAt.date }}</p>
-                {% endif %}
+                <a href="{{ path('product_show', {'id': product.id}) }}">
+                    <p>{{ product.name }}</p>
+                </a>
+                {# Immagine #}
             </li>
         {% endfor %}
     </ul>
