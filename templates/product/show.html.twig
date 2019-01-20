@@ -7,8 +7,8 @@
         <li>
             <p>{{ product.id }}</p>
             <p>{{ product.name }}</p>
-            {# Immagine #}
             <p>{{ product.description }}</p>
+            <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
             <p>{{ product.price }}</p>
             {% if product.createdAt %}
                 <p>{{ product.createdAt.date }}</p>
