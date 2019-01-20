@@ -8,17 +8,15 @@
             <p>{{ product.id }}</p>
             <p>{{ product.name }}</p>
             <p>{{ product.description }}</p>
-            <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
-            <p>{{ product.price }}</p>
-            {% if product.createdAt %}
-                <p>{{ product.createdAt.date }}</p>
+            {% if product.image %}
+                <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
             {% endif %}
-            {# {% for tag in product.tag %}
-                <p>{{ tag }}</p>
-            {% endfor %} #}
-            {{ product.tag }}
+            <p>{{ product.price }}</p>
+            <p>{{ product.createdAt.date }}</p>
+            <p>{{ product.tag }}</p>
         </li>
     </ul>
     
     <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+    <a href="{{ path('product_delete', {'id': product.id}) }}">delete</a>
 {% endblock %}

@@ -123,7 +123,6 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', ['product' => $product]);
     }
 
-
     /**
      * @Route("/product/{id}/edit", name="product_edit")
      */
@@ -189,5 +188,40 @@ class ProductController extends AbstractController
         return $this->render('product/form.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+    * @Route("/", name="search")
+    */
+    public function searchAction()
+    {
+
+        $request = Request::createFromGlobals();
+        $data = $request->request->get('search');
+     
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $res = $repository->findBy(array('name' => $data));
+
+        return $this->render('product/list.html.twig', array(
+            'products' => $res
+        ));
+    }
+
+    /**
+     * @Route("/product/{id}/delete", name="product_delete")
+     */
+    public function deleteProduct($id)
+    {   
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->find($id);
+
+        var_dump($product);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product_list');
     }
 }

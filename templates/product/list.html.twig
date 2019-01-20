@@ -3,13 +3,20 @@
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
+    <form role="search" method="post" action="{{ path('search') }}">
+        <input type="text" placeholder="Search" name ="search">
+        <button type="submit">Search</button>
+    </form>
     <ul>
         {% for product in products %}
             <li>
                 <a href="{{ path('product_show', {'id': product.id}) }}">
                     <p>{{ product.name }}</p>
                 </a>
-                {# Immagine #}
+                {% if product.image %}
+                    <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
+                {% endif %}
+                <p>{{ product.createdAt.date }}</p>
             </li>
         {% endfor %}
     </ul>
