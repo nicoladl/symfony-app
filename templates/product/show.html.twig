@@ -3,20 +3,40 @@
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
-    <ul>
-        <li>
-            <p>{{ product.id }}</p>
-            <p>{{ product.name }}</p>
-            <p>{{ product.description }}</p>
-            {% if product.image %}
-                <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
-            {% endif %}
-            <p>{{ product.price }}</p>
-            <p>{{ product.createdAt.date }}</p>
-            <p>{{ product.tag }}</p>
-        </li>
-    </ul>
+    <div class="product">
+        <div class="product__item">
+            <p class="text">Name:</p>
+            <h1 class="title">{{ product.name }}</h1>
+        </div>
+
+        <div class="product__item">
+            <p class="text">Description:</p>
+            <p class="text">{{ product.description }}</p>
+        </div>
+
+        <div class="product__item">
+            <p class="text">Image:</p>
+            <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
+        </div>
+
+        <div class="product__item">
+            <p class="text">Price:</p>
+            <p class="text">{{ product.price }} €</p>
+        </div>
+
+        <div class="product__item">
+            <p class="text">Created at:</p>
+            <p class="text">{{ product.createdAt.date }}</p>
+        </div>
+
+        <div class="product__item">
+            <p class="text">Tags:</p>
+        <p class="text">{{ product.tag }}</p>
+        </div>
     
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-    <a href="{{ path('product_delete', {'id': product.id}) }}">delete</a>
+        <div class="product__button">
+            <a class="button button--edit" href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+            <a class="button button--delete" href="{{ path('product_delete', {'id': product.id}) }}">delete</a>
+        </div>
+    </div>
 {% endblock %}

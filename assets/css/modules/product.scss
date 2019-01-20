@@ -1,0 +1,15 @@
+.product {
+    margin: 5vw;
+
+    &__item {
+        padding: 20px 0;
+
+        img {
+            height: 100px;
+        }
+    }
+
+    &__button {
+        padding-top: 5vw;
+    }
+}
