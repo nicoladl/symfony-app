@@ -1,0 +1,32 @@
+.list {
+    padding: 5vw;
+    padding-top: 0;
+
+    &__item {
+        padding: 10px 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #C2D6EE;
+        background-color: #fff;
+        color: #848484;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    img {
+        height: 100px;
+    }
+}
+
+.list-header {
+    margin: 10px 5vw;
+    margin-top: 0;
+    padding: 10px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}

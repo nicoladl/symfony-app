@@ -1,23 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Product List{% endblock %}
 
 {% block body %}
-    <form role="search" method="post" action="{{ path('search') }}">
-        <input type="text" placeholder="Search" name ="search">
-        <button type="submit">Search</button>
-    </form>
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{{ path('product_show', {'id': product.id}) }}">
-                    <p>{{ product.name }}</p>
-                </a>
-                {% if product.image %}
-                    <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
-                {% endif %}
-                <p>{{ product.createdAt.date }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <form class="search" role="search" method="post" action="{{ path('search') }}">
+            <button class="button button--search" type="submit">Search</button>
+            <input type="text" placeholder="Search" name ="search">
+        </form>
+        <ul class="list-header">
+            <li>Name</li>
+            <li>Image</li>
+            <li>Date</li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="list">
+            {% for product in products %}
+                <li class="list__item">
+                    <a href="{{ path('product_show', {'id': product.id}) }}"><p>{{ product.name }}</p></a>
+                    {% if product.image %}
+                        <img src="{{ asset('uploads/image/' ~ product.image) }}" alt="{{ product.name }}" />
+                    {% endif %}
+                    <p>{{ product.createdAt.date }}</p>
+                    <a class="button button--edit" href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                    <a class="button button--delete" href="{{ path('product_delete', {'id': product.id}) }}">delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

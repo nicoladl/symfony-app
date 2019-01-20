@@ -1,0 +1,21 @@
+.button {
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    border: none;
+
+    &--edit {
+        background-color: #39526E;
+    }
+
+    &--delete {
+        background-color: #f57070;
+    }
+
+    &--search {
+        background-color: #7CB2F1;
+    }
+}
