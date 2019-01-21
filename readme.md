@@ -26,7 +26,6 @@
 ```
 
 - Edit product with id
-- See product with id
 
 ```
 /product/{id}/delete
