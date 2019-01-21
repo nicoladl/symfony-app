@@ -1,5 +1,4 @@
 .list {
-    padding: 5vw;
     padding-top: 0;
 
     &__item {
@@ -22,7 +21,7 @@
 }
 
 .list-header {
-    margin: 10px 5vw;
+    margin: 10px 0;
     margin-top: 0;
     padding: 10px 5vw;
     display: flex;

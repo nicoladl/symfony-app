@@ -1,4 +1,4 @@
-.button {
+.button, #form_save {
     padding: 20px;
     border-radius: 5px;
     color: #fff;
@@ -18,4 +18,8 @@
     &--search {
         background-color: #7CB2F1;
     }
+}
+
+#form_save {
+    background-color: #7CB2F1;
 }

@@ -4,3 +4,16 @@ input {
     padding: 0 10px;
     margin: 0 20px;
 }
+
+#form {
+    div {
+        padding-bottom: 20px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+        input {
+            height: 100%;
+        }
+    }
+}
